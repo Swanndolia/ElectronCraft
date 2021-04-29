@@ -5,11 +5,11 @@ const bcrypt = require("bcrypt");
 exports.signup = (req, res, next) => {
   mailBody = req.body.mail.split("@");
   bcrypt
-    .hash(req.body.pass, 10)
+    .hash(req.body.password, 10)
     .then((hash) => {
       const user = {
         mail: secureCrypt(mailBody[0]) + "@" + mailBody[1],
-        pass: hash,
+        password: hash,
         username: secureCrypt(req.body.username),
       };
       db.users
@@ -48,12 +48,12 @@ exports.login = (req, res, next) => {
           return res.status(404).json({ error: "Utilisateur non trouvé !" });
         }
         bcrypt
-          .compare(req.body.pass, user.pass)
+          .compare(req.body.password, user.password)
           .then((valid) => {
             if (!valid) {
               return res
                 .status(401)
-                .json({ error: "Mot de passe incorrect !" });
+                .json({ error: "Mot de passworde incorrect !" });
             }
             res.status(200).json({
               username: secureCrypt(user.username),
@@ -77,12 +77,12 @@ exports.login = (req, res, next) => {
           return res.status(404).json({ error: "Utilisateur non trouvé !" });
         }
         bcrypt
-          .compare(req.body.pass, user.pass)
+          .compare(req.body.password, user.password)
           .then((valid) => {
             if (!valid) {
               return res
                 .status(401)
-                .json({ error: "Mot de passe incorrect !" });
+                .json({ error: "Mot de passworde incorrect !" });
             }
             res.status(200).json({
               username: secureCrypt(user.username),

@@ -5,7 +5,7 @@ module.exports = (sequelize, Sequelize) => {
       required: true,
       unique: true,
     },
-    pass: {
+    password: {
       type: Sequelize.STRING,
       required: true,
     },
