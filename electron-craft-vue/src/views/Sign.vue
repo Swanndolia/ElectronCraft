@@ -115,7 +115,7 @@ export default {
 }
 form {
   position: relative;
-  background: #1C1C1C;
+  background: #1c1c1c;
   width: 50%;
   display: flex;
   flex-direction: column;

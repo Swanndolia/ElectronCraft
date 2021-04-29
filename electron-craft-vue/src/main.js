@@ -1,6 +1,5 @@
 import { createApp } from "vue";
 import App from "./App.vue";
 import router from "./router";
-createApp(App).use(router).mount("#app");
-
-
+import electron from "electron";
+createApp(App).use(router).use(electron).mount("#app");
