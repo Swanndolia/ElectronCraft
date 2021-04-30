@@ -41,6 +41,8 @@
 </template>
 
 <script>
+const { Client, Authenticator } = require("minecraft-launcher-core");
+const homedir = require("os").homedir();
 import * as storage from "../modules/storage.js";
 export default {
   name: "Home",
@@ -60,24 +62,18 @@ export default {
       sessionStorage.clear();
     },
     runMinecraft() {
-      const { Client, Authenticator } = require("minecraft-launcher-core");
       const launcher = new Client();
-
       let opts = {
         clientPackage: null,
-        // For production launchers, I recommend not passing
-        // the getAuth function through the authorization field and instead
-        // handling authentication outside before you initialize
-        // MCLC so you can handle auth based errors and validation!
         authorization: Authenticator.getAuth(storage.getStorage("username")),
-        root: "./minecraft",
+        root: homedir + "/azurpixel",
         version: {
           number: "1.16.5",
           type: "release",
         },
         memory: {
-          max: "6G",
-          min: "4G",
+          max: "2G",
+          min: "2G",
         },
       };
 

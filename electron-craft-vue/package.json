@@ -1,5 +1,8 @@
 {
-  "name": "electron-craft-vue",
+  "name": "ElectronCraft-Vue.js",
+  "description": "First try to electron, mixing it with Vue.js",
+  "author": {"email": "Swanndolia@gmail.com", "name": "Swanndolia"},
+  "homepage": "",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -16,9 +19,9 @@
     "axios": "^0.21.1",
     "core-js": "^3.6.5",
     "minecraft-launcher-core": "^3.16.2",
-    "original-fs": "^1.1.0",
     "vue": "^3.0.0",
-    "vue-router": "^4.0.5"
+    "vue-router": "^4.0.5",
+    "electron": "^11.0.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
