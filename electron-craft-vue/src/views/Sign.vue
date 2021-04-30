@@ -51,20 +51,25 @@ export default {
   },
   methods: {
     tryLogin() {
-      const userData = new FormData();
-      userData.set("username", document.getElementById("username-input").value);
-      userData.set("password", document.getElementById("password-input").value);
-      axios
-        .post("https://51.91.56.15:3000/api/users/login", userData)
-        .then((response) => {
-          if (response) {
-            storage.setStorage("token", response.data.token);
-            storage.setStorage("username", response.data.username);
-            storage.setStorage("userId", response.data.userId);
-            this.$router.push("/");
-          }
-        })
-        .catch((error) => console.log(error));
+      // const userData = new FormData();
+      // userData.set("username", document.getElementById("username-input").value);
+      // userData.set("password", document.getElementById("password-input").value);
+      // axios
+      //   .post("http://51.91.56.15:3000/api/users/login", userData)
+      //   .then((response) => {
+      //     if (response) {
+      //       storage.setStorage("token", response.data.token);
+      //       storage.setStorage("username", response.data.username);
+      //       storage.setStorage("userId", response.data.userId);
+      //       this.$router.push("/");
+      //     }
+      //   })
+      //   .catch((error) => console.log(error));
+      storage.setStorage(
+        "username",
+        document.getElementById("username-input").value
+      );
+      this.$router.push("/");
     },
     tryRegister() {
       const userData = new FormData();
@@ -72,7 +77,7 @@ export default {
       userData.set("username", document.getElementById("username-input").value);
       userData.set("password", document.getElementById("password-input").value);
       axios
-        .post("https://51.91.56.15:3000/api/users/signup", userData)
+        .post("http://51.91.56.15:3000/api/users/signup", userData)
         .then((response) => {
           if (response) {
             storage.setStorage("token", response.data.token);
