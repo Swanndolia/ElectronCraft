@@ -1,7 +1,7 @@
 module.exports = {
     HOST: "localhost",
     USER: "ebbg",
-    PASSWORD: "pqrpqrmfkG1!",
+    PASSWORD: "D^3e6$RX6ih(",
     DB: "ElectronCraft",
     dialect: "mariadb",
     pool: {

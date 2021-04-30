@@ -41,8 +41,6 @@
 </template>
 
 <script>
-const { Client, Authenticator } = require("minecraft-launcher-core");
-const homedir = require("os").homedir();
 import * as storage from "../modules/storage.js";
 export default {
   name: "Home",
@@ -62,11 +60,13 @@ export default {
       sessionStorage.clear();
     },
     runMinecraft() {
+      const { Client, Authenticator } = require("minecraft-launcher-core");
+      const homedir = require("os").homedir();
       const launcher = new Client();
       let opts = {
         clientPackage: null,
         authorization: Authenticator.getAuth(storage.getStorage("username")),
-        root: homedir + "/azurpixel",
+        root: homedir + "/.azurpixel",
         version: {
           number: "1.16.5",
           type: "release",
@@ -76,9 +76,7 @@ export default {
           min: "2G",
         },
       };
-
       launcher.launch(opts);
-
       launcher.on("debug", (e) => console.log(e));
       launcher.on("data", (e) => console.log(e));
     },

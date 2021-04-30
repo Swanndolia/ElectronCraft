@@ -1,7 +1,10 @@
 {
   "name": "ElectronCraft-Vue.js",
   "description": "First try to electron, mixing it with Vue.js",
-  "author": {"email": "Swanndolia@gmail.com", "name": "Swanndolia"},
+  "author": {
+    "email": "Swanndolia@gmail.com",
+    "name": "Swanndolia"
+  },
   "homepage": "",
   "version": "0.1.0",
   "private": true,
@@ -20,8 +23,7 @@
     "core-js": "^3.6.5",
     "minecraft-launcher-core": "^3.16.2",
     "vue": "^3.0.0",
-    "vue-router": "^4.0.5",
-    "electron": "^11.0.0"
+    "vue-router": "^4.0.5"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
@@ -30,7 +32,7 @@
     "@vue/compiler-sfc": "^3.0.0",
     "@vue/eslint-config-prettier": "^6.0.0",
     "babel-eslint": "^10.1.0",
-    "electron": "^11.0.0",
+    "electron": "^11.4.3",
     "electron-devtools-installer": "^3.1.0",
     "eslint": "^6.7.2",
     "eslint-plugin-prettier": "^3.3.1",

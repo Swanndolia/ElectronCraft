@@ -55,7 +55,7 @@ export default {
       userData.set("username", document.getElementById("username-input").value);
       userData.set("password", document.getElementById("password-input").value);
       axios
-        .post("http://localhost:3000/api/users/login", userData)
+        .post("https://51.91.56.15:3000/api/users/login", userData)
         .then((response) => {
           if (response) {
             storage.setStorage("token", response.data.token);
@@ -72,7 +72,7 @@ export default {
       userData.set("username", document.getElementById("username-input").value);
       userData.set("password", document.getElementById("password-input").value);
       axios
-        .post("http://localhost:3000/api/users/signup", userData)
+        .post("https://51.91.56.15:3000/api/users/signup", userData)
         .then((response) => {
           if (response) {
             storage.setStorage("token", response.data.token);

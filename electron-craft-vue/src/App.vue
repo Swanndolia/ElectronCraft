@@ -19,6 +19,7 @@ export default {
 body,
 html {
   margin: 0;
+  background: #030303;
 }
 h1,
 h2,
