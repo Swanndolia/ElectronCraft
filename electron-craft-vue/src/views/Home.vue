@@ -60,13 +60,9 @@ export default {
       sessionStorage.clear();
     },
     runMinecraft() {
-      const { Client, Authenticator } = require("minecraft-launcher-core");
-      const homedir = require("os").homedir();
-      const launcher = new Client();
       let opts = {
         clientPackage: null,
-        authorization: Authenticator.getAuth(storage.getStorage("username")),
-        root: homedir + "/.azurpixel",
+        authorization: storage.getStorage("username"),
         version: {
           number: "1.16.5",
           type: "release",
@@ -76,9 +72,7 @@ export default {
           min: "2G",
         },
       };
-      launcher.launch(opts);
-      launcher.on("debug", (e) => console.log(e));
-      launcher.on("data", (e) => console.log(e));
+      window.ipcRenderer.send("run-game", opts);
     },
   },
 };

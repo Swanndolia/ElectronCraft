@@ -1,5 +1,5 @@
 import { createRouter, createWebHashHistory } from "vue-router";
-// import * as storage from "../modules/storage";
+import * as storage from "../modules/storage";
 const routes = [
   {
     path: "/",
@@ -22,11 +22,11 @@ const router = createRouter({
 //redirect to sign if user is not
 router.beforeEach((to, from, next) => {
   if (to.matched.some((record) => record.meta.requiresAuth)) {
-    // if (!storage.getStorage("token")) {
-    //   next({ name: "Sign" });
-    // } else {
-    next();
-    // }
+    if (!storage.getStorage("username")) {
+      next({ name: "Sign" });
+    } else {
+      next();
+    }
   } else {
     next();
   }

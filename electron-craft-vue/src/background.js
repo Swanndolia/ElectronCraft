@@ -16,7 +16,9 @@ async function createWindow() {
     width: 1200,
     height: 900,
     webPreferences: {
-      enableRemoteModule: true,
+      enableRemoteModule: false,
+      contextIsolation: true,
+      preload: path.join(__dirname, "../preload.js"),
       // Use pluginOptions.nodeIntegration, leave this alone
       // See nklayman.github.io/vue-cli-plugin-electron-builder/guide/security.html#node-integration for more info
       nodeIntegration: process.env.ELECTRON_NODE_INTEGRATION,
@@ -78,3 +80,12 @@ if (isDevelopment) {
     });
   }
 }
+ipcMain.on("run-game", (event, arg) => {
+  console.log(arg);
+  const { Client } = require("minecraft-launcher-core");
+  const launcher = new Client();
+  arg.root = app.getPath("home") + "/.azurpixel";
+  launcher.launch(arg);
+  launcher.on("debug", (e) => console.log(e));
+  launcher.on("data", (e) => console.log(e));
+});
